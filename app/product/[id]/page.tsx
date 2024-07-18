@@ -4,18 +4,17 @@ import { useParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import SingleProduct from "../../../components/SingleProduct";
 
-const Page = () => {
+const  ProductPage = () => {
   const { id } = useParams();
-  console.log("id is :-", id);
   const {singleProduct,getSingleProduct}=useSupabase();
   useEffect(()=>{
     getSingleProduct(Number(id));
-  },[])
+  },[id,getSingleProduct])
    return (
     <div >
-         <SingleProduct  singleProduct={singleProduct} id={id} />
+         <SingleProduct  singleProduct={singleProduct}  />
     </div>
   );
 }
 
-export default Page;
+export default  ProductPage;

@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(()=>{
     getMensClothing();
     getWomensClothing();
-  },[])
+  },[getMensClothing,getWomensClothing])
   return (
     <div>
       <Image src={"https://images-eu.ssl-images-amazon.com/images/G/31/img21/OHL/GW/PD/Newlaunch/PC_Hero_3000x1200_Bank--UPI_2X._CB568359096_.jpg"} width={10000} height={1000} alt={'banner'}/>
@@ -19,7 +19,7 @@ const HomePage = () => {
       {
         mensProduct.map((product:any)=>{
           return(
-            <div >
+            <div key={product.id}>
             <CategoryWiseProduct product={product}/>
             </div>
           )
@@ -28,7 +28,7 @@ const HomePage = () => {
        {
         womensProduct.map((product:any)=>{
           return(
-            <div >
+            <div key={product.id}>
             <CategoryWiseProduct product={product}/>
             </div>
           )

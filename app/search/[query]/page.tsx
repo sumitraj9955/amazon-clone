@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSupabase } from "../../../lib/supabase/hooks/useSupabase";
 import SearchResult from "../../../components/SearchResult";
 
-const Page = () => {
+const SearchPage = () => {
   const { query } = useParams();
   const { filterData, getFilterdData } = useSupabase();
 
@@ -13,7 +13,7 @@ const Page = () => {
     if (query) {
       getFilterdData(query.toString());
     }
-  }, [query]); // Add query to the dependency array
+  }, [query, getFilterdData]); // Add query to the dependency array
 
   return (
     <div className="text-black">
@@ -22,4 +22,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default SearchPage;
